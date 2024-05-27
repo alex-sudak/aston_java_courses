@@ -238,4 +238,4 @@ public class Lection2 {
             System.out.print(a[i] + " , ");
         }
     }
-}1
+}
