@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Animal {
     protected int distance;
@@ -79,12 +80,8 @@ class Dog extends Animal{
     }
 }
 
-public class Bowl{
-    public int hungry;
-    public boolean full;
-    public String name;
-    int add;
-    int del;
+class Bowl{
+
     public int feed;
     public Bowl(int feed){
         this.feed = feed;
@@ -100,26 +97,27 @@ public class Bowl{
     }
 }
 
-public class Catfeed extends Bowl{
-//    private int hungry;
-//    public boolean full;
- //   public String name;
+class Catfeed {
+    public int hungry;
+    public boolean full;
+    public String name;
 
     public Catfeed(String name, int hungry, boolean full){
-        super();
         this.name = name;
         this.hungry=  hungry;
         this.full = full;
     }
 
     public void feedAdd(Bowl bwl){
-        bwl.addfeed(hungry);
+        bwl.delfeed(hungry);
     }
 }
 
 class Main {
     public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
+        System.out.println("Урок номер 4 - Задание 1, часть первая 'Бег и плавание котов и собак'");
+        System.out.println();
         Animal animal = new Animal();
         System.out.println("Укажите имя КОТА, которое Вам нравится");
         Scanner cs = new Scanner(System.in);
@@ -144,16 +142,20 @@ class Main {
         System.out.println("Всего котов понадобилось " + Cat.getCount());
         System.out.println("Всего собак понадобилось " + Dog.getCount());
 
+        System.out.println();
+        System.out.println("Урок номер 4 - Задание 2, часть вторая 'Учим котов кушать из миски'");
+        System.out.println();
         feedingCats();
+
     }
-        public static void feedingCats(String[] args){
+        public static void feedingCats(){
         int action;
         Catfeed[] cats = new Catfeed[5];
         cats[0] = new Catfeed("Василий", 21, false);
-        cats[0] = new Catfeed("Тимоха", 7, false);
-        cats[0] = new Catfeed("Кукуруза", 15, false);
-        cats[0] = new Catfeed("Хвостокрыл", 39, false);
-        cats[0] = new Catfeed("Усач", 28, false);
+        cats[1] = new Catfeed("Тимоха", 7, false);
+        cats[2] = new Catfeed("Кукуруза", 15, false);
+        cats[3] = new Catfeed("Хвостокрыл", 39, false);
+        cats[4] = new Catfeed("Усач", 28, false);
 
         Bowl bowl = new Bowl(40);
         bowl.total();
