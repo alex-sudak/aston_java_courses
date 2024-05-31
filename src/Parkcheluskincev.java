@@ -3,29 +3,37 @@ public class Parkcheluskincev {
         private String name;
         private String time;
         private int price;
+
         public Attractions(String name, String time, int price) {
             this.name = name;
             this.time = time;
             this.price = price;
         }
+
         public String getName() {
             return name;
         }
+
         public String getTime() {
             return time;
         }
+
         public int getPrice() {
             return price;
         }
+
         public void setTime(String time) {
             this.time = time;
         }
+
         public void setPrice(int price) {
             this.price = price;
         }
+
         public void setName(String name) {
             this.name = name;
         }
+    }
         public static void main(String[] args) {
             Parkcheluskincev park = new Parkcheluskincev();
             Parkcheluskincev.Attractions attraction1 = new Parkcheluskincev.Attractions("Колесо обозрения", "8:00 - 19:00", 3);
@@ -41,4 +49,3 @@ public class Parkcheluskincev {
             System.out.println("Время работы: " + attraction2.getTime());
         }
     }
-}
