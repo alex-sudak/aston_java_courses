@@ -34,12 +34,12 @@ class Cat extends Animal{
 
     @Override
     void Run(int distance){
-    if(distance > 200){
-        System.out.println("Животное типа 'Кот' " + name + " тяжело пробегать такое расстояние как " + distance + " метров");
-    } else {
-        System.out.println("Животное типа 'Кот' " + name + " с легкостью пробежал(а) " + distance + " метров");
+        if(distance > 200){
+            System.out.println("Животное типа 'Кот' " + name + " тяжело пробегать такое расстояние как " + distance + " метров");
+        } else {
+            System.out.println("Животное типа 'Кот' " + name + " с легкостью пробежал(а) " + distance + " метров");
+        }
     }
-}
     @Override
     void Swim(int distance) {
         System.out.println("Животное типа 'Кот' " + name + " вообще-то не умеет плавать");
@@ -148,7 +148,7 @@ class Main {
         feedingCats();
 
     }
-        public static void feedingCats(){
+    public static void feedingCats(){
         int action;
         Catfeed[] cats = new Catfeed[5];
         cats[0] = new Catfeed("Василий", 21, false);
@@ -176,4 +176,3 @@ class Main {
         bowl.total();
     }
 }
-

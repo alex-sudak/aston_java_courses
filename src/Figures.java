@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 interface Figures {
     double square();
     double perimeter();
@@ -131,8 +129,3 @@ class Mainnew {
         triangle.draw();
     }
 }
-
-
-
-
-
