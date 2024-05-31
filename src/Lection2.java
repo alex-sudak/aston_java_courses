@@ -4,53 +4,59 @@ public class Lection2 {
     public static void main(String[] args) {
         boolean success = false;
         do {
+            System.out.println("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
             System.out.println("Пожалуйста введите номер задания Темы 2, которое Вы хотели бы проверить - целое число от 1 до 14");
+            System.out.println("---Примечание--- для выхода из программы введите любое число, отличное от 1-14 и нажмите 'ENTER'");
             Scanner cs = new Scanner(System.in);
             int numberOfTask = cs.nextInt();
-            if (numberOfTask == 1) {
+            switch (numberOfTask){
+            case (1) :
                 printThreeWords();
-            }
-            if (numberOfTask == 2) {
+                break;
+            case (2) :
                 checkSumSign();
-            }
-            if (numberOfTask == 3) {
+                break;
+            case (3) :
                 printColor();
-            }
-            if (numberOfTask == 4) {
+                break;
+            case (4) :
                 compareNumbers();
-            }
-            if (numberOfTask == 5) {
+                break;
+            case (5) :
                 checkAmount(5, 7);
-            }
-            if (numberOfTask == 6) {
+                break;
+            case (6) :
                 mathSign(-6);
-            }
-            if (numberOfTask == 7) {
+                break;
+            case (7) :
                 checkMathSign(10);
-            }
-            if (numberOfTask == 8) {
+                break;
+            case (8) :
                 stringAndNumber("Пусто", 5);
-            }
-            if (numberOfTask == 9) {
+                break;
+            case (9) :
                 leapYear(1984);
-            }
-            if (numberOfTask == 10) {
+                break;
+            case (10) :
                 changeArray();
-            }
-            if (numberOfTask == 11) {
+                break;
+            case (11) :
                 fillingArray();
-            }
-            if (numberOfTask == 12) {
+                break;
+            case (12) :
                 lessThanSix();
-            }
-            if (numberOfTask == 13) {
+                break;
+            case (13) :
                 fillingDiagonal();
-            }
-            if (numberOfTask == 14) {
+                break;
+            case (14) :
                 oneDimensionalArray(5, "ABC");
-            }
-            if (numberOfTask <= 0 | numberOfTask > 15) {
-                System.out.println("Вы ввели номер задания, которого не существует, попробуйте снова");
+                break;
+            default:
+                System.out.println("Спасибо что выбрали нас, мы ценим Ваше доверие к нашему продукту. Всего наилучшего!");
+                System.out.println("-----------------------------------------------------------------------------------");
+                success = true;
+                break;
             }
         } while (!success);
     }
