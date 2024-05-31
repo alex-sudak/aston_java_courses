@@ -20,19 +20,19 @@ public class Lection2 {
                 compareNumbers();
             }
             if (numberOfTask == 5) {
-                checkAmount();
+                checkAmount(5, 7);
             }
             if (numberOfTask == 6) {
-                mathSign();
+                mathSign(-6);
             }
             if (numberOfTask == 7) {
-                checkMathSign();
+                checkMathSign(10);
             }
             if (numberOfTask == 8) {
-                stringAndNumber();
+                stringAndNumber("Пусто", 5);
             }
             if (numberOfTask == 9) {
-                leapYear();
+                leapYear(1984);
             }
             if (numberOfTask == 10) {
                 changeArray();
@@ -47,7 +47,7 @@ public class Lection2 {
                 fillingDiagonal();
             }
             if (numberOfTask == 14) {
-                oneDimensionalArray();
+                oneDimensionalArray(5, "ABC");
             }
             if (numberOfTask <= 0 | numberOfTask > 15) {
                 System.out.println("Вы ввели номер задания, которого не существует, попробуйте снова");
@@ -55,13 +55,9 @@ public class Lection2 {
         } while (!success);
     }
     public static void printThreeWords(){
-        String a, b, c;
-        a = "Orange";
-        b = "Banana";
-        c = "Apple";
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
+        System.out.println("Orange");
+        System.out.println("Banana");
+        System.out.println("Apple");
     }
     public static void checkSumSign(){
         System.out.println("Пожалуйста введите цифру 'a'");
@@ -102,66 +98,35 @@ public class Lection2 {
             System.out.println("a < b");
         }
     }
-    public static void checkAmount() {
-        System.out.println("Пожалуйста введите любое целое число");
-        Scanner cs = new Scanner(System.in);
-        int a = cs.nextInt();
-        System.out.println("Пожалуйста введите любое целое число, чтобы завешить проверку введенных Вами чисел");
-        int b = cs.nextInt();
-        int c = a + b;
-        if (c >= 10 & c <= 20) {
-            System.out.println(true);
-        } else {
-            System.out.println(false);
-        }
+    public static boolean checkAmount(int a, int b) {
+            int c = a + b;
+            if (c >= 10 & c <= 20)
+                return true;
+            else return false;
     }
-    public static void mathSign() {
-        System.out.println("Пожалуйста введите любое целое число в консоль");
-        Scanner cs = new Scanner(System.in);
-        int a = cs.nextInt();
+    public static void mathSign(int a) {
         if (a>=0) {
             System.out.println("Вы ввели положительное число");
         } else {
             System.out.println("Вы ввели отрицательное число");
         }
     }
-    public static void checkMathSign() {
-        System.out.println("Пожалуйста введите цифру 'a'");
-        Scanner cs = new Scanner(System.in);
-        int a = cs.nextInt();
-        if (a > 0) {
-            System.out.println(false);
-        }
-        if (a < 0) {
-            System.out.println(true);
-        }
-        if (a == 0) {
-            System.out.println("Вы ввели число '0'");
-        }
+    public static boolean checkMathSign(int a) {
+        if (a < 0) return true;
+        else return false;
     }
-    public static void stringAndNumber() {
-        System.out.println("Пожалуйста введите свой текст");
-        Scanner cs = new Scanner(System.in);
-        String a = cs.nextLine();
-        System.out.println("Пожалуйста введите любое целое положительное число");
-        int b = cs.nextInt();
+    public static void stringAndNumber(String a, int b) {
         for(int i = 1; i <= b ; i++){
             System.out.println(a);
         }
     }
-    public static void leapYear() {
-        System.out.println("Пожалуйста введите год, который Вы хотите проверить");
-        Scanner cs = new Scanner(System.in);
-        int a = cs.nextInt();
+    public static boolean leapYear(int a) {
         int b = a % 4;
         int c = a % 100;
         int d = a % 400;
-        if (a > 0 & b == 0 & c != 0 | d == 0) {
-            System.out.println("Введенный Вами год является високосным");
-        }
-        else {
-            System.out.println("Введенный Вами год не является високосным");
-        }
+        if (a > 0 && b == 0 && c != 0 || d == 0)
+            return true;
+        else return false;
     }
     public static void changeArray() {
         int[] a = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
@@ -169,9 +134,7 @@ public class Lection2 {
             if (a[i] == 0) {
                 a[i] = 1;
                 System.out.print(a[i]);
-                continue;
-            }
-            if (a[i] == 1) {
+            } else {
                 a[i] = 0;
                 System.out.print(a[i]);
             }
@@ -214,18 +177,14 @@ public class Lection2 {
                     a[i][j] = 1;
                     System.out.print(" " + a[i][j] + " ");
                 }
-                else
+                else {
                     System.out.print(" " + a[i][j] + " ");
+                }
             }
             System.out.println();
         }
     }
-    public static void oneDimensionalArray() {
-        System.out.println("Пожалуйста введите значение 'initialValue'");
-        Scanner cs = new Scanner(System.in);
-        String initialValue = cs.nextLine();
-        System.out.println("Пожалуйста введите целое число 'len'");
-        int len = cs.nextInt();
+    public static void oneDimensionalArray(int len, String initialValue) {
         String[] a = new String[len];
         System.out.println("Полученный массив длиной " + len + " выглядит следующим образом");
         for (int i = 0; i < len; i++) {
