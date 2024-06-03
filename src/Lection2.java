@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lection2 {
@@ -212,15 +213,11 @@ public class Lection2 {
     public static void oneDimensionalArray(int len, String initialValue) {
         String[] a = new String[len];
         System.out.println("Полученный массив длиной " + len + " выглядит следующим образом");
-        for (int i = 0; i < len; i++) {
-            if (i == len - 1) {
+        for (int i = 0; i < a.length; i++) {
                 a[i] = initialValue;
-                System.out.println(a[i]);
-                continue;
-            } else {
-                a[i] = initialValue;
+                System.out.print(a[i]);
+                System.out.print(" ");
             }
-            System.out.print(a[i] + " ");
+        System.out.println();
         }
     }
-}
