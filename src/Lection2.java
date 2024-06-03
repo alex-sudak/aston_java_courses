@@ -60,11 +60,13 @@ public class Lection2 {
             }
         } while (!success);
     }
+
     public static void printThreeWords(){
         System.out.println("Orange");
         System.out.println("Banana");
         System.out.println("Apple");
     }
+
     public static void checkSumSign(){
         System.out.println("Пожалуйста введите цифру 'a'");
         Scanner cs = new Scanner(System.in);
@@ -78,6 +80,7 @@ public class Lection2 {
             System.out.println("Сумма отрицательная");
         }
     }
+
     public static void printColor(){
         System.out.println("Пожалуйста введите любое число");
         Scanner cs = new Scanner(System.in);
@@ -92,6 +95,7 @@ public class Lection2 {
             System.out.println("Красный");
         }
     }
+
     public static void compareNumbers(){
         System.out.println("Пожалуйста введите цифру 'a'");
         Scanner cs = new Scanner(System.in);
@@ -104,12 +108,16 @@ public class Lection2 {
             System.out.println("a < b");
         }
     }
+
     public static boolean checkAmount(int a, int b) {
             int c = a + b;
-            if (c >= 10 & c <= 20)
+            if (c >= 10 & c <= 20) {
                 return true;
-            else return false;
+            } else {
+                return false;
+            }
     }
+
     public static void mathSign(int a) {
         if (a>=0) {
             System.out.println("Вы ввели положительное число");
@@ -117,23 +125,33 @@ public class Lection2 {
             System.out.println("Вы ввели отрицательное число");
         }
     }
+
     public static boolean checkMathSign(int a) {
-        if (a < 0) return true;
-        else return false;
+        if (a < 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
+
     public static void stringAndNumber(String a, int b) {
         for(int i = 1; i <= b ; i++){
             System.out.println(a);
         }
     }
+
     public static boolean leapYear(int a) {
         int b = a % 4;
         int c = a % 100;
         int d = a % 400;
-        if (a > 0 && b == 0 && c != 0 || d == 0)
+        if (a > 0 && b == 0 && c != 0 || d == 0) {
             return true;
-        else return false;
+        } else {
+            return false;
+        }
     }
+
     public static void changeArray() {
         int[] a = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
         for (int i = 0; i < a.length; i++) {
@@ -147,6 +165,7 @@ public class Lection2 {
         }
         System.out.println();
     }
+
     public static void fillingArray() {
         int[] a = new int[100];
         System.out.println("Длина массива до изменения " + a.length);
@@ -158,20 +177,20 @@ public class Lection2 {
         System.out.println();
         System.out.println("Длина массива после изменения " + a.length);
     }
+
     public static void lessThanSix() {
         int[] a = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         System.out.println(a.length);
         for (int i = 0; i < a.length; i++) {
             if (a[i] > 6) {
                 a[i] = a[i]*2;
-                System.out.print(a[i]);
-                System.out.print(" ");
-                continue;
             }
             System.out.print(a[i]);
             System.out.print(" ");
         }
+        System.out.println();
     }
+
     public static void fillingDiagonal() {
         System.out.println("Пожалуйста введите целое число, которое будет определять размер двумерного массива, типа квадрат");
         Scanner cs = new Scanner(System.in);
@@ -182,25 +201,26 @@ public class Lection2 {
                 if (i == j | b - i - 1 == j) {
                     a[i][j] = 1;
                     System.out.print(" " + a[i][j] + " ");
-                }
-                else {
+                } else {
                     System.out.print(" " + a[i][j] + " ");
                 }
             }
             System.out.println();
         }
     }
+
     public static void oneDimensionalArray(int len, String initialValue) {
         String[] a = new String[len];
         System.out.println("Полученный массив длиной " + len + " выглядит следующим образом");
         for (int i = 0; i < len; i++) {
-            if (i == len - 1){
+            if (i == len - 1) {
                 a[i] = initialValue;
                 System.out.println(a[i]);
                 continue;
+            } else {
+                a[i] = initialValue;
             }
-            a[i] = initialValue;
-            System.out.print(a[i] + " , ");
+            System.out.print(a[i] + " ");
         }
     }
 }
