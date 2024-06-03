@@ -2,177 +2,89 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Animal {
-    protected int distance;
+    public boolean full;
+    public int hungry;
+    public int distance;
     static int count;
-    protected String name;
+    public String name;
     protected int swim;
     protected int run;
+    public int feed;
 
-    public Animal(){
+    public Animal() {
         count++;
     }
 
-    void Run(int distance){
+    void run(int distance) {
         System.out.println("Животное бежит " + distance);
     }
-    void Swim(int distance){
+
+    void swim(int distance) {
         System.out.println("Животное плывет " + distance);
     }
-    public static int getCount(){
+
+    public static int getCount() {
         return count;
     }
-}
 
-class Cat extends Animal{
-    String name;
-    static int count = 0;
-    public Cat(String name){
-        super();
-        count++;
-        this.name = name;
-    }
-
-    @Override
-    void Run(int distance){
-        if(distance > 200){
-            System.out.println("Животное типа 'Кот' " + name + " тяжело пробегать такое расстояние как " + distance + " метров");
-        } else {
-            System.out.println("Животное типа 'Кот' " + name + " с легкостью пробежал(а) " + distance + " метров");
-        }
-    }
-    @Override
-    void Swim(int distance) {
-        System.out.println("Животное типа 'Кот' " + name + " вообще-то не умеет плавать");
-    }
-
-    public static int getCount(){
-        return count;
-    }
-}
-
-class Dog extends Animal{
-    String name;
-    static int count = 0;
-    public Dog(String name){
-        super();
-        count++;
-        this.name = name;
-    }
-    @Override
-    void Run(int distance){
-        if(distance > 500){
-            System.out.println("Животное типа 'Собака' " + name + " не может пробегать такое большое расстояние в " + distance + " метр(ов)");
-        } else {
-            System.out.println("Животное типа 'Собака' " + name + " справил(ся/ась) с дистанцией и пробежал(а) " + distance + " метр(ов)");
-        }
-    }
-    @Override
-    void Swim(int distance){
-        if(distance > 10){
-            System.out.println("Животное типа 'Собака' " + name + " не может плавать такое расстояние как " + distance + " метр(ов)");
-        } else {
-            System.out.println("Животное типа 'Собака' " + name + " успешно проплыла " + distance + " метр(ов)");
-        }
-    }
-
-    public static int getCount(){
-        return count;
-    }
-}
-
-class Bowl{
-
-    public int feed;
-    public Bowl(int feed){
-        this.feed = feed;
-    }
-    public void addfeed(int add){
-        feed = feed + add;
-    }
-    public void delfeed(int del){
-        feed = feed - del;
-    }
-    public void total(){
-        System.out.println("Еды в миске осталось: " + feed);
-    }
-}
-
-class Catfeed {
-    public int hungry;
-    public boolean full;
-    public String name;
-
-    public Catfeed(String name, int hungry, boolean full){
-        this.name = name;
-        this.hungry=  hungry;
-        this.full = full;
-    }
-
-    public void feedAdd(Bowl bwl){
+    public void feedAdd(Bowl bwl) {
         bwl.delfeed(hungry);
     }
 }
 
 class Main {
     public static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
+        int action;
+        Animal[] animals = new Animal[5];
+        animals[0] = new Cat("Василий", 21, false, 0, 200);
+        animals[1] = new Cat("Тимоха", 7, false, 0, 200);
+        animals[2] = new Cat("Кукуруза", 15, false, 0, 200);
+        animals[3] = new Dog("Тузик", 39, false, 10, 500);
+        animals[4] = new Dog("Грелка", 28, false, 10, 500);
+
+        System.out.println("Давайте вместе посчитаем, сколько же животных мы создали...");
+
+        for (int i = 0; i < animals.length; i++) {
+        }
+        System.out.println("Всего котов нами было создано: " + Cat.getCount());
+        System.out.println("Всего собак нами было создано: " + Dog.getCount());
+        System.out.println("Всего животных (коты + собаки) было создано: " + Animal.getCount());
+        System.out.println();
         System.out.println("Урок номер 4 - Задание 1, часть первая 'Бег и плавание котов и собак'");
         System.out.println();
-        Animal animal = new Animal();
-        System.out.println("Укажите имя КОТА, которое Вам нравится");
-        Scanner cs = new Scanner(System.in);
-        String catname = cs.nextLine();
-        System.out.println("Укажите имя СОБАКИ, которое Вам нравится");
-        String dogname = cs.nextLine();
-        Cat name1 = new Cat(catname);
-        Dog name2 = new Dog(dogname);
-        System.out.println("Укажите дистанцию в метрах, которую Вы бы хотели чтобы ПРОБЕЖАЛ КОТ по имени " + catname);
-        int a = cs.nextInt();
-        System.out.println("Укажите дистанцию в метрах, которую Вы бы хотели чтобы ПРОБЕЖАЛА СОБАКА по имени " + dogname);
-        int b = cs.nextInt();
-        System.out.println("Укажите дистанцию в метрах, которую Вы бы хотели чтобы ПРОПЛЫЛ КОТ по имени " + catname);
-        int c = cs.nextInt();
-        System.out.println("Укажите дистанцию в метрах, которую Вы бы хотели чтобы ПРОПЛЫЛА СОБАКА по имени " + dogname);
-        int d = cs.nextInt();
-        name1.Run(a);
-        name2.Run(b);
-        name1.Swim(c);
-        name2.Swim(d);
-        System.out.println("Всего животных было использовано в эксперименте " + Animal.getCount());
-        System.out.println("Всего котов понадобилось " + Cat.getCount());
-        System.out.println("Всего собак понадобилось " + Dog.getCount());
+        System.out.println("---Бег---");
+
+        for (int i = 0; i < animals.length; i++) {
+            animals[i].run(500);
+        }
+
+        System.out.println();
+        System.out.println("---Плавание---");
+
+        for (int i = 0; i < animals.length; i++) {
+            animals[i].swim(10);
+        }
 
         System.out.println();
         System.out.println("Урок номер 4 - Задание 2, часть вторая 'Учим котов кушать из миски'");
-        System.out.println();
-        feedingCats();
-
-    }
-    public static void feedingCats(){
-        int action;
-        Catfeed[] cats = new Catfeed[5];
-        cats[0] = new Catfeed("Василий", 21, false);
-        cats[1] = new Catfeed("Тимоха", 7, false);
-        cats[2] = new Catfeed("Кукуруза", 15, false);
-        cats[3] = new Catfeed("Хвостокрыл", 39, false);
-        cats[4] = new Catfeed("Усач", 28, false);
 
         Bowl bowl = new Bowl(40);
         bowl.total();
-        for(int i = 0; i < cats.length; i++){
-            if (cats[i].full == false && cats[i].hungry < bowl.feed ){
-                cats[i].feedAdd(bowl);
-                cats[i].full = true;
-                System.out.println("Пушистый звереныш по имени " + cats[i].name + " хорошо покушал и он сыт");
-            } else {
-                System.out.println("Пушистый звереныш по имени " + cats[i].name + " очень голоден и хочет кушать");
-
+        for (int i = 0; i < animals.length; i++) {
+                    if (animals[i].full == false && animals[i].hungry < bowl.feed) {
+                    animals[i].feedAdd(bowl);
+                    animals[i].full = true;
+                    System.out.println("Пушистый звереныш по имени " + animals[i].name + " хорошо покушал и он сыт");
+                } else {
+                    System.out.println("Пушистый звереныш по имени " + animals[i].name + " очень голоден и хочет кушать");
+                }
             }
+            bowl.total();
+            System.out.println("Добавьте пожалуйста корма в миску для того чтобы котик покушал - укажите вес корма для добавления");
+            action = sc.nextInt();
+            bowl.addfeed(action);
+            bowl.total();
         }
-        bowl.total();
-        System.out.println("Добавьте пожалуйста корма в миску для того чтобы котик покушал - укажите вес корма для добавления");
-        action = sc.nextInt();
-        bowl.addfeed(action);
-        bowl.total();
     }
-}
