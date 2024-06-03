@@ -1,4 +1,4 @@
-public class Parkcheluskincev {
+public class Park {
     public static class Attractions {
         private String name;
         private String time;
@@ -34,10 +34,13 @@ public class Parkcheluskincev {
             this.name = name;
         }
     }
+}
+
+    class ParkInfo {
         public static void main(String[] args) {
-            Parkcheluskincev park = new Parkcheluskincev();
-            Parkcheluskincev.Attractions attraction1 = new Parkcheluskincev.Attractions("Колесо обозрения", "8:00 - 19:00", 3);
-            Parkcheluskincev.Attractions attraction2 = new Parkcheluskincev.Attractions("Лодочка", "9:00 - 19:00", 5);
+            Park park = new Park();
+            Park.Attractions attraction1 = new Park.Attractions("Колесо обозрения", "8:00 - 19:00", 3);
+            Park.Attractions attraction2 = new Park.Attractions("Лодочка", "9:00 - 19:00", 5);
             System.out.println("Информация об аттракционе номер 1: ");
             System.out.println("Название: " + attraction1.getName());
             System.out.println("Стоимость(руб): " + attraction1.getPrice());
