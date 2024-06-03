@@ -73,7 +73,7 @@ class Main {
         Bowl bowl = new Bowl(40);
         bowl.total();
         for (int i = 0; i < animals.length; i++) {
-                    if (animals[i].full == false && animals[i].hungry < bowl.feed) {
+                    if (animals[i].full == false && animals[i].hungry <= bowl.feed) {
                     animals[i].feedAdd(bowl);
                     animals[i].full = true;
                     System.out.println("Пушистый звереныш по имени " + animals[i].name + " хорошо покушал и он сыт");
