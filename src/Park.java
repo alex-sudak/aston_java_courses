@@ -3,12 +3,16 @@ public class Park {
         private String name;
         private String time;
         private int price;
+        private int number;
 
-        public Attractions(String name, String time, int price) {
+        public Attractions(int number, String name, String time, int price) {
+            this.number = number;
             this.name = name;
             this.time = time;
             this.price = price;
         }
+
+        public int getNumber() { return number; }
 
         public String getName() {
             return name;
@@ -21,6 +25,8 @@ public class Park {
         public int getPrice() {
             return price;
         }
+
+        public void setNumber(int number) { this.number = number; }
 
         public void setTime(String time) {
             this.time = time;
@@ -38,17 +44,17 @@ public class Park {
 
     class ParkInfo {
         public static void main(String[] args) {
-            Park park = new Park();
-            Park.Attractions attraction1 = new Park.Attractions("Колесо обозрения", "8:00 - 19:00", 3);
-            Park.Attractions attraction2 = new Park.Attractions("Лодочка", "9:00 - 19:00", 5);
-            System.out.println("Информация об аттракционе номер 1: ");
-            System.out.println("Название: " + attraction1.getName());
-            System.out.println("Стоимость(руб): " + attraction1.getPrice());
-            System.out.println("Время работы: " + attraction1.getTime());
-            System.out.println();
-            System.out.println("Информация об аттракционе номер 2: ");
-            System.out.println("Название: " + attraction2.getName());
-            System.out.println("Стоимость(руб): " + attraction2.getPrice());
-            System.out.println("Время работы: " + attraction2.getTime());
+            Park.Attractions[] attractions = new Park.Attractions[4];
+            attractions[0] = new Park.Attractions(1, "Колесо обозрения", "8:00 - 19:00", 3);
+            attractions[1] = new Park.Attractions(2, "Лодочка", "9:00 - 19:00", 5);
+            attractions[2] = new Park.Attractions(3, "Супер8", "8:00 - 18:30", 7);
+            attractions[3] = new Park.Attractions(4, "Вальс", "8:30 - 17:30", 4);
+            for (int i = 0; i < attractions.length; i++) {
+                System.out.println("Информация об аттракционе номер : " + attractions[i].getNumber());
+                System.out.println("Название: " + attractions[i].getName());
+                System.out.println("Стоимость(руб): " + attractions[i].getPrice());
+                System.out.println("Время работы: " + attractions[i].getTime());
+                System.out.println();
+            }
         }
     }

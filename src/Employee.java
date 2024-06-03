@@ -20,6 +20,9 @@ public class Employee {
                 ", Email " + email + ", Phone " + phone + ", Salary " + salary +
                 ", Age " + age);
     }
+}
+
+    class Main{
     public static void main(String[] args) {
         Employee[] persArray = new Employee[5];
         persArray[0] = new Employee("Ivanov Ivan", "Engineer",
