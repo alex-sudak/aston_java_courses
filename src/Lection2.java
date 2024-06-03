@@ -215,9 +215,7 @@ public class Lection2 {
         System.out.println("Полученный массив длиной " + len + " выглядит следующим образом");
         for (int i = 0; i < a.length; i++) {
                 a[i] = initialValue;
-                System.out.print(a[i]);
-                System.out.print(" ");
             }
-        System.out.println();
+        System.out.println(Arrays.toString(a));
         }
     }
