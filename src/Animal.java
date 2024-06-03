@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class Animal {
+public abstract class Animal {
     public boolean full;
     public int hungry;
     public int distance;
