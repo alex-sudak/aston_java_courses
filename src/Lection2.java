@@ -51,7 +51,7 @@ public class Lection2 {
                 fillingDiagonal();
                 break;
             case (14) :
-                oneDimensionalArray(5, "ABC");
+                oneDimensionalArray(5, 10);
                 break;
             default:
                 System.out.println("Спасибо что выбрали нас, мы ценим Ваше доверие к нашему продукту. Всего наилучшего!");
@@ -210,12 +210,13 @@ public class Lection2 {
         }
     }
 
-    public static void oneDimensionalArray(int len, String initialValue) {
-        String[] a = new String[len];
+    public static int[] oneDimensionalArray(int len, int initialValue) {
+        int[] a = new int[len];
         System.out.println("Полученный массив длиной " + len + " выглядит следующим образом");
         for (int i = 0; i < a.length; i++) {
                 a[i] = initialValue;
             }
         System.out.println(Arrays.toString(a));
+        return a;
         }
     }
