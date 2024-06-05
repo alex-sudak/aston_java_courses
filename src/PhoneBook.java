@@ -7,20 +7,20 @@ public class PhoneBook {
     private Map<String, List<String>> phonebook = new HashMap<>();
     private List<String> phonelist;
 
-    public void add(String surname, String phone_number) {
-        if (phonebook.containsKey(surname)) {
-            phonelist = phonebook.get(surname);
+    public void add(String name, String phone_number) {
+        if (phonebook.containsKey(name)) {
+            phonelist = phonebook.get(name);
             phonelist.add(phone_number);
-            phonebook.put(surname, phonelist);
+            phonebook.put(name, phonelist);
         } else {
             phonelist = new ArrayList<>();
             phonelist.add(phone_number);
-            phonebook.put(surname, phonelist);
+            phonebook.put(name, phonelist);
         }
     }
 
-    public List<String> get(String surname) {
-        return phonebook.get(surname);
+    public List<String> get(String name) {
+        return phonebook.get(name);
     }
 
     public static void main(String[] args) {
@@ -41,9 +41,11 @@ public class PhoneBook {
         phoneBook.add("Наталья", "337120505");
         phoneBook.add("Павел", "225347600");
 
-        System.out.println("Павел: " + phoneBook.get("Павел"));
+        System.out.println("Результат поиска по именам смотрите в списке ниже: ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("  Павел: " + phoneBook.get("Павел"));
         System.out.println("Дмитрий: " + phoneBook.get("Дмитрий"));
-        System.out.println("Алиса: " + phoneBook.get("Алиса"));
+        System.out.println("  Алиса: " + phoneBook.get("Алиса"));
         System.out.println("Татьяна: " + phoneBook.get("Татьяна"));
     }
 }
