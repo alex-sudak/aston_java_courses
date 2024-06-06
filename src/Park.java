@@ -2,78 +2,79 @@ public class Park {
     private String name;
     private String time;
     private int price;
-    private int number;
-    private Attractions[] attractions;
+    private Attraction[] attractions;
+    private int attrCount;
 
-    Park park = new Park();
-    Park.Attractions[] attractions1 = new Park.Attractions[4]; {
-        attractions[0] = new Park.Attractions(1, "Колесо обозрения", "8:00 - 19:00", 3);
-        attractions[1] = new Park.Attractions(2, "Лодочка", "9:00 - 19:00", 5);
-        attractions[2] = new Park.Attractions(3, "Супер8", "8:00 - 18:30", 7);
-        attractions[3] = new Park.Attractions(4, "Вальс", "8:30 - 17:30", 4);
-        park.setAttractions(attractions);
+    public Park(int count){
+        attractions = new Attraction[count];
+        attrCount = 0;
     }
 
-    public void setAttractions(Attractions[] attractions) {
-        this.attractions = attractions;
+    public void addAttraction(Attraction attraction){
+        if (attrCount < attractions.length) {
+            attractions[attrCount] = attraction;
+            attrCount++;
+        } else {
+            System.out.println("Больше аттракционов нельзя создавать");
+        }
     }
 
-    public Attractions[] getAttractions() {
-        return attractions1;
+    public void attractionInfo(){
+        for (Attraction attraction : attractions) {
+            if (attraction != null) {
+                System.out.println(attraction);
+            }
+        }
     }
 
-    public int getNumber() {
-        return number;
-    }
+//    private Park park = new Park();
+//    Park.Attraction park1= new Park.Attraction("Колесо обозрения","8:00 - 19:00",3);
+//    Park.Attraction park2 = new Park.Attraction( "Лодочка", "9:00 - 19:00", 5);
+//    Park.Attraction park3 = new Park.Attraction( "Супер8", "8:00 - 18:30", 7);
+//    Park.Attraction park4 = new Park.Attraction( "Вальс", "8:30 - 17:30", 4);
 
-    public String getName() {
-        return name;
-    }
 
-    public String getTime() {
-        return time;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public class Attractions {
+    public class Attraction {
         private String name;
         private String time;
         private int price;
-        private int number;
 
-        public Attractions(int number, String name, String time, int price) {
-            this.number = number;
+        public Attraction(String name, String time, int price) {
             this.name = name;
             this.time = time;
             this.price = price;
         }
 
-        public void attractionInfo() {
-            System.out.println("Информация об аттракционе номер : " + number);
-            System.out.println("Название: " + name);
-            System.out.println("Стоимость(руб): " + price);
-            System.out.println("Время работы: " + time);
-            System.out.println();
-//            return getAttractions();
+        public String getName() {
+            return name;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public int getPrice() {
+            return price;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
+
+        public void setPrice(int price) {
+            this.price = price;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+        return
+                "Название аттракциона: '" + name +
+                "' | Время работы: " + time +
+                " | Стоимость: " + price + " бел.руб.";
         }
     }
 }
