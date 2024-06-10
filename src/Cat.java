@@ -8,18 +8,22 @@ public class Cat extends Animal{
         count++;
         this.name = name;
         this.hungry = hungry;
-        this.full = full;
+        this.full = false;
         this.swim = swim;
         this.run = run;
     }
 
-        public void feedAdd(Bowl bwl){
-            bwl.delfeed(hungry);
+        @Override
+        String getName(){
+        return name;
         }
 
+        public void feedAdd(Bowl bwl){
+        bwl.delFeed(hungry);
+        }
 
-    @Override
-    void run(int distance){
+        @Override
+        void run(int distance){
         if(distance > 200){
             System.out.println("Животное типа 'Кот' " + name + " тяжело пробегать такое расстояние как " + distance + " метров");
         } else {

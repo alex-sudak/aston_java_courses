@@ -8,9 +8,14 @@ class Dog extends Animal {
         count++;
         this.name = name;
         this.hungry = hungry;
-        this.full = full;
+        this.full = false;
         this.swim = swim;
         this.run = run;
+    }
+
+    @Override
+    String getName(){
+        return name;
     }
 
     @Override
@@ -32,10 +37,10 @@ class Dog extends Animal {
     }
 
     public void feedAdd(Bowl bwl){
-        bwl.delfeed(hungry);
+        bwl.delFeed(hungry);
     }
 
-    public static int getCount(){
+    public static int getCount() {
         return count;
     }
 }
