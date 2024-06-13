@@ -21,18 +21,32 @@ public class MtsByTest {
     @BeforeAll
     static void webDriverSetup() {
 
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 //        driver = new ChromeDriver();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://mts.by");
+ //       WebDriver driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.get("https://mts.by");
 
-        WebElement cooAgreed = driver.findElement(By.id("cookie-agree"));
+//        WebElement cooAgreed = driver.findElement(By.id("cookie-agree"));
     }
 
     @Test
     public void titleTest() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        driver = new ChromeDriver();
+        //       WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://mts.by");
+//        WebDriverWait wait = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='Подробнее о сервисе']")));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[6]/main/div/div[2]")));
+        WebElement frame = driver.findElement(By.xpath("/html/body/div[6]/main/div/div[2]"));
+        driver.switchTo().frame(frame);
+        WebElement cooAgreed = driver.findElement(By.id("cookie-agree"));
+
         WebElement title = driver.findElement(By.id("pay-section"));
         Assertions.assertEquals(title.getText(), "Онлайн пополнение ");
     }
